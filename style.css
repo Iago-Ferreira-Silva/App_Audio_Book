@@ -1,3 +1,6 @@
+/* ------------------------------
+   Reset e base
+------------------------------ */
 * {
   margin: 0;
   padding: 0;
@@ -18,32 +21,45 @@ body {
   flex-direction: column;
   align-items: center;
   color: #ffffff;
+  text-align: center;
 }
 
+/* ------------------------------
+   Estrutura principal
+------------------------------ */
 .container-aplicativo {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  width: 90%;
+  max-width: 400px;
 }
 
-button {
-  background-color: inherit;
-  color: inherit;
-  border: none;
-  cursor: pointer;
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #dfffd8;
 }
 
-.music-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* ------------------------------
+   Capa do livro
+------------------------------ */
+#capa {
+  width: 80%;
+  max-width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
+/* ------------------------------
+   Informações do capítulo
+------------------------------ */
 #informacoes-faixa {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem 0 1rem 0;
+  margin: 1.5rem 0 1rem 0;
 }
 
 #capitulo {
@@ -51,21 +67,60 @@ button {
   font-weight: bold;
 }
 
-#play-pause,
-#anterior,
-#proximo {
+#nome-autor {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* ------------------------------
+   Botões de controle
+------------------------------ */
+#container-botoes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 0.5rem;
+}
+
+/* Todos os botões */
+button {
+  background-color: transparent;
+  color: inherit;
+  border: none;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
-#anterior,
-#proximo {
+/* Ícones SVG dentro dos botões */
+button svg {
   width: 40px;
+  height: 40px;
+  fill: #ffffff;
 }
 
-#play-pause {
+/* Botão central maior (play/pause) */
+#play-pause svg {
   width: 60px;
+  height: 60px;
 }
 
+/* Efeitos visuais */
+button:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+button:focus {
+  outline: 2px solid #5eff9b;
+  outline-offset: 4px;
+}
+
+/* ------------------------------
+   Estado de reprodução
+------------------------------ */
 .pause {
   display: none;
 }
@@ -78,9 +133,25 @@ button {
   display: block;
 }
 
-#container-botoes {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+/* ------------------------------
+   Responsividade
+------------------------------ */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  #capitulo {
+    font-size: 1.2rem;
+  }
+
+  button svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  #play-pause svg {
+    width: 50px;
+    height: 50px;
+  }
 }
